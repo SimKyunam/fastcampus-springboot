@@ -6,11 +6,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Base64;
+
 @SpringBootApplication
 public class SpringIocApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringIocApplication.class, args);
+		System.out.println(Base64.getEncoder().encodeToString("steve@gmail.com".getBytes()));
 //		ApplicationContext context = ApplicationContextProvider.getContext();
 //
 ////		Base64Encoder base64Encoder = context.getBean(Base64Encoder.class);

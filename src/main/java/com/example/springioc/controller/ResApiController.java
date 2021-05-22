@@ -1,5 +1,7 @@
 package com.example.springioc.controller;
 
+import com.example.springioc.annotation.Decode;
+import com.example.springioc.annotation.Timer;
 import com.example.springioc.dto.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,21 @@ public class ResApiController {
 
     @PostMapping("/post")
     public User post(@RequestBody User user){
+        return user;
+    }
+
+    @Timer
+    @DeleteMapping("/delete")
+    public void delete() throws InterruptedException {
+
+        Thread.sleep(1000*2);
+    }
+
+    @Decode
+    @PutMapping("/put")
+    public User put(@RequestBody User user){
+        System.out.println("put");
+        System.out.println(user);
         return user;
     }
 }
