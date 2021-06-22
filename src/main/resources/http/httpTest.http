@@ -1,0 +1,17 @@
+###
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "name": "홍길동",
+  "age": 10
+}
+
+###
+POST http://localhost:8080/api/temp
+Content-Type: application/json
+
+{
+  "name": "홍길동",
+  "age": 10
+}
