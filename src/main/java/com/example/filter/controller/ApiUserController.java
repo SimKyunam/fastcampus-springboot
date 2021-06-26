@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiUserController {
 
     @PostMapping("")
-    public User user (@RequestBody User user){
+    public User user(@RequestBody User user) {
         log.info("User : {}", user);
         return user;
     }
