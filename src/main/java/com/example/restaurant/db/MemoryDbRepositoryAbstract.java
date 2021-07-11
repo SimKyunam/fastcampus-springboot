@@ -16,11 +16,10 @@ public abstract class MemoryDbRepositoryAbstract<T extends MemoryDbEntity> imple
 
     @Override
     public T save(T entity) {
-
         var optionalEntity = db.stream().filter(it -> it.getIndex() == entity.getIndex()).findFirst();
 
         if(optionalEntity.isEmpty()){// db에 데이터가 없는 경우
-            entity.setIndex(index++);
+            entity.setIndex(++index);
         }else{// db에 이미 데이터가 있는 경우
             var preIndex = optionalEntity.get().getIndex();
             entity.setIndex(preIndex);
@@ -36,7 +35,7 @@ public abstract class MemoryDbRepositoryAbstract<T extends MemoryDbEntity> imple
     public void deleteById(int index) {
         var optionalEntity = db.stream().filter(it -> it.getIndex() == index).findFirst();
         if(optionalEntity.isPresent()){
-            db.remove(optionalEntity.get().getIndex());
+            db.remove(optionalEntity.get().getIndex()-1);
         }
     }
 
