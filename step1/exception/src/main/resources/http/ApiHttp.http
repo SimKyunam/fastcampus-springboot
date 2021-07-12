@@ -1,0 +1,20 @@
+### missingServletRequestParameterException
+GET http://localhost:8080/api/user?name=&age=
+Accept: application/json
+
+###constraintViolationException
+GET http://localhost:8080/api/user?name=a&age=0
+Accept: application/json
+
+###constraintViolationException
+GET http://localhost:8080/api/user?name=&age=0
+Accept: application/json
+
+###methodArgumentNotValidException
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "name": "aaaaaaaaaaaa",
+  "age": 0
+}
